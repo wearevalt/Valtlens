@@ -254,8 +254,8 @@ function renderModels(models) {
     if (models.length === 0) {
         modelsGrid.innerHTML = `
             <div class="no-results">
-                <h3>No models found</h3>
-                <p>Try adjusting your search or filter criteria.</p>
+                <h3>🔍 Aucun modèle trouvé</h3>
+                <p>Essayez d'ajuster vos critères de recherche ou de filtrage.</p>
             </div>
         `;
         return;
@@ -273,39 +273,39 @@ function createModelCard(model, index) {
     card.className = 'model-card';
     card.style.animationDelay = `${index * 0.1}s`;
     
-    const stars = '★'.repeat(Math.floor(model.rating)) + '☆'.repeat(5 - Math.floor(model.rating));
+    const stars = '⭐'.repeat(Math.floor(model.rating)) + '☆'.repeat(5 - Math.floor(model.rating));
     
     card.innerHTML = `
-        <h3>${model.name}</h3>
-        <p class="developer">${model.developer}</p>
+        <h3>🎯 ${model.name}</h3>
+        <p class="developer">🏢 ${model.developer}</p>
         <p class="description">${model.description}</p>
         <div class="meta">
             <div class="meta-item">
                 <span>⏱️</span>
-                <strong>Duration:</strong> ${model.maxDuration}
+                <strong>Durée:</strong> ${model.maxDuration}
             </div>
             <div class="meta-item">
                 <span>📺</span>
-                <strong>Resolution:</strong> ${model.resolution}
+                <strong>Résolution:</strong> ${model.resolution}
             </div>
             <div class="meta-item">
                 <span>💰</span>
-                <strong>Pricing:</strong> ${model.pricing}
+                <strong>Tarification:</strong> ${model.pricing}
             </div>
             <div class="meta-item">
-                <span>🎯</span>
-                <strong>Best For:</strong> ${model.bestFor}
+                <span>✨</span>
+                <strong>Idéal Pour:</strong> ${model.bestFor}
             </div>
         </div>
         <div class="tags">
-            ${model.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            ${model.tags.map(tag => `<span class="tag">🏷️ ${tag}</span>`).join('')}
         </div>
         <div class="card-footer">
             <div class="rating">
                 <span>${stars}</span>
                 <span>${model.rating}</span>
             </div>
-            <a href="${model.url}" target="_blank" class="btn card-btn">Visit →</a>
+            <a href="${model.url}" target="_blank" class="btn card-btn">🚀 Visiter →</a>
         </div>
     `;
     
@@ -411,6 +411,6 @@ document.querySelectorAll('.section').forEach(section => {
 });
 
 // Console welcome message
-console.log('%c🎬 AI Video Models Directory', 'font-size: 20px; font-weight: bold; color: #6366f1;');
-console.log('%cWelcome to the AI Video Generation Models Directory!', 'font-size: 14px; color: #10b981;');
-console.log('Press "/" to focus search, "Escape" to clear.');
+console.log('%c🎬 Répertoire IA Vidéo', 'font-size: 20px; font-weight: bold; color: #8b5cf6;');
+console.log('%c✨ Bienvenue dans le Répertoire des Modèles de Génération Vidéo IA !', 'font-size: 14px; color: #06b6d4;');
+console.log('🔍 Appuyez sur "/" pour focus la recherche, "Escape" pour effacer.');
