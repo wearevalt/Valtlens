@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr" style="scroll-behavior:smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Valtlens — Le Journal de l'IA Vidéo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#09090b;--bg2:#111113;--bg3:#18181b;--bg4:#27272a;--fg:#fafafa;--fg2:#a1a1aa;--fg3:#71717a;--vi:#8b5cf6;--vi3:rgba(139,92,246,.15);--in:#6366f1;--border:rgba(255,255,255,.07)}
+body{background:var(--bg);color:var(--fg);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.6}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(9,9,11,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 clamp(1rem,4vw,3rem)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--vi),var(--in));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.logo-name{font-family:'Instrument Serif',serif;font-size:1.4rem;color:#fff;font-style:italic}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--fg2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff}
+.nav-actions{display:flex;gap:.75rem;align-items:center}
+.btn-ghost{padding:.45rem 1rem;border-radius:999px;border:1px solid var(--bg4);font-size:.8125rem;font-weight:500;color:var(--fg2);background:transparent;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-ghost:hover{border-color:var(--vi);color:#fff;background:var(--vi3)}
+.btn-cta-nav{padding:.5rem 1.25rem;border-radius:999px;background:#fff;color:#000;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-cta-nav:hover{background:#e4e4e7}
+/* PAGE */
+.page-wrap{max-width:1200px;margin:0 auto;padding:110px clamp(1rem,4vw,3rem) 5rem}
+/* HERO */
+.blog-hero{text-align:center;margin-bottom:4rem}
+.blog-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .875rem;border-radius:999px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);font-size:.75rem;font-weight:700;color:#818cf8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.25rem}
+.blog-pulse{width:7px;height:7px;border-radius:50%;background:#818cf8;animation:pulse 1.5s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.9)}}
+.blog-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.875rem;line-height:1.15}
+.blog-sub{font-size:1rem;color:var(--fg2);max-width:500px;margin:0 auto 2rem}
+/* FILTERS */
+.cat-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:.5rem}
+.cat-btn{padding:.4rem 1rem;border-radius:999px;font-size:.8125rem;font-weight:500;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--fg2);transition:all .2s}
+.cat-btn:hover{border-color:rgba(139,92,246,.4);color:#fff;background:var(--vi3)}
+.cat-btn.active{background:var(--vi);color:#fff;border-color:var(--vi)}
+/* FEATURED */
+.featured-article{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:24px;overflow:hidden;margin-bottom:3rem;cursor:pointer;transition:border-color .3s;text-decoration:none}
+.featured-article:hover{border-color:rgba(139,92,246,.3)}
+.featured-img{min-height:300px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.featured-img-inner{width:100%;height:100%;transition:transform .5s;display:flex;align-items:center;justify-content:center}
+.featured-article:hover .featured-img-inner{transform:scale(1.04)}
+.featured-body{padding:2.5rem 2rem 2.5rem 0;display:flex;flex-direction:column;justify-content:center}
+.article-cat-badge{display:inline-block;padding:.25rem .75rem;border-radius:8px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.cat-release{background:rgba(139,92,246,.15);color:#c4b5fd}
+.cat-tutorial{background:rgba(6,182,212,.15);color:#67e8f9}
+.cat-analysis{background:rgba(245,158,11,.15);color:#fbbf24}
+.cat-news{background:rgba(16,185,129,.15);color:#6ee7b7}
+.featured-body h2{font-size:1.625rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.875rem}
+.featured-body p{font-size:.9375rem;color:var(--fg2);line-height:1.75;margin-bottom:1.25rem}
+.article-meta{display:flex;align-items:center;gap:.625rem;font-size:.8rem;color:var(--fg3)}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:var(--bg4)}
+/* GRID */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.article-card{background:var(--bg3);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .3s;text-decoration:none;display:block}
+.article-card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-3px)}
+.card-img{height:180px;overflow:hidden;position:relative}
+.card-img-inner{width:100%;height:100%;transition:transform .5s;display:flex;align-items:center;justify-content:center}
+.article-card:hover .card-img-inner{transform:scale(1.05)}
+.card-body{padding:1.25rem}
+.card-title{font-size:1rem;font-weight:700;color:#fff;line-height:1.45;margin-bottom:.625rem;transition:color .2s}
+.article-card:hover .card-title{color:var(--vi)}
+.card-excerpt{font-size:.8375rem;color:var(--fg3);line-height:1.65;margin-bottom:.875rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{font-size:.75rem;color:var(--fg3);display:flex;align-items:center;gap:.5rem}
+/* SECTION TITLE */
+.section-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.75rem;margin-top:3rem}
+.section-h2{font-size:1.25rem;font-weight:700;color:#fff}
+.see-all{font-size:.875rem;color:var(--fg2);display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;transition:color .2s}
+.see-all:hover{color:#fff}
+/* SIDEBAR-LIKE newsletter */
+.newsletter-mini{background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(99,102,241,.07));border:1px solid rgba(139,92,246,.15);border-radius:20px;padding:2rem;margin-top:3rem;text-align:center}
+.newsletter-mini h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.newsletter-mini p{font-size:.875rem;color:var(--fg2);margin-bottom:1.25rem}
+.nl-form{display:flex;gap:.625rem;flex-wrap:wrap;justify-content:center}
+.nl-form input{flex:1;min-width:180px;padding:.7rem 1rem;border-radius:10px;background:rgba(9,9,11,.7);border:1px solid var(--border);color:#fff;font-family:inherit;font-size:.875rem;outline:none;transition:border-color .2s}
+.nl-form input:focus{border-color:rgba(139,92,246,.5)}
+.nl-form input::placeholder{color:var(--fg3)}
+.nl-btn{padding:.7rem 1.5rem;border-radius:10px;background:#fff;color:#000;font-weight:700;font-size:.875rem;border:none;cursor:pointer;transition:all .2s}
+.nl-btn:hover{background:#e4e4e7}
+/* TOAST */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:#18181b;border:1px solid rgba(139,92,246,.4);color:#fff;padding:.875rem 1.5rem;border-radius:12px;font-size:.875rem;z-index:9999;transform:translateY(100px);opacity:0;transition:all .35s;box-shadow:0 20px 40px rgba(0,0,0,.5);max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+footer{border-top:1px solid var(--border);background:#050506;padding:2rem clamp(1rem,4vw,3rem)}
+.footer-bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.footer-bottom p{font-size:.8125rem;color:var(--fg3)}
+.footer-nav{display:flex;gap:1.5rem}
+.footer-nav a{font-size:.8125rem;color:var(--fg3);text-decoration:none;transition:color .2s}
+.footer-nav a:hover{color:#fff}
+@media(max-width:768px){.featured-article{grid-template-columns:1fr}.featured-body{padding:1.5rem}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+      <span class="logo-name">Valtlens</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#models">Modèles IA</a>
+      <a href="/blog/" class="active">Journal</a>
+      <a href="/#newsletter">Newsletter</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn-ghost" href="/submit/">Soumettre une IA</a>
+      <a class="btn-cta-nav" href="/auth/">Se connecter</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="blog-hero">
+    <div class="blog-badge">
+      <span class="blog-pulse"></span>
+      Dernières Updates
+    </div>
+    <h1 class="blog-title">Le Journal de l'IA Vidéo</h1>
+    <p class="blog-sub">Releases, tutoriels, analyses — restez à l'avant-garde de la révolution IA vidéo.</p>
+    <div class="cat-filters" id="catFilters">
+      <button class="cat-btn active" data-cat="all">Tout</button>
+      <button class="cat-btn" data-cat="release">Release</button>
+      <button class="cat-btn" data-cat="tutorial">Tutoriel</button>
+      <button class="cat-btn" data-cat="analysis">Analyse</button>
+      <button class="cat-btn" data-cat="news">News</button>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <a class="featured-article" href="/blog/article/?id=sora-public" id="featuredArticle">
+    <div class="featured-img" style="background:linear-gradient(135deg,rgba(124,58,237,.3),rgba(79,70,229,.25))">
+      <div class="featured-img-inner">
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.25" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      </div>
+    </div>
+    <div class="featured-body">
+      <span class="article-cat-badge cat-release">Release</span>
+      <h2>Sora d'OpenAI est enfin ouvert au public : Ce qu'il faut savoir</h2>
+      <p>Le modèle de génération vidéo le plus attendu de l'année est enfin disponible. On analyse ses capacités réelles, ses limites et ce que ça change pour les créateurs.</p>
+      <div class="article-meta">
+        <span>Aujourd'hui</span><span class="meta-dot"></span>
+        <span>3 min de lecture</span><span class="meta-dot"></span>
+        <span>Par Valtlens</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- GRID -->
+  <div class="section-row">
+    <h2 class="section-h2">Tous les articles</h2>
+  </div>
+  <div class="articles-grid" id="articlesGrid">
+    <!-- Injected by JS -->
+  </div>
+
+  <!-- NEWSLETTER MINI -->
+  <div class="newsletter-mini">
+    <h3>Ne ratez plus aucune release</h3>
+    <p>Newsletter hebdo — les meilleurs modèles IA, les tutos et les analyses directement dans votre boîte mail.</p>
+    <div class="nl-form">
+      <input type="email" id="nlEmail" placeholder="votre@email.com">
+      <button class="nl-btn" onclick="handleNL()">S'abonner</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2025 Valtlens. Tous droits réservés.</p>
+    <div class="footer-nav">
+      <a href="/">Accueil</a>
+      <a href="/blog/">Journal</a>
+      <a href="/submit/">Soumettre</a>
+      <a href="/auth/">Connexion</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var ARTICLES = [
+  {id:'sora-public',title:'Sora d\'OpenAI est enfin ouvert au public',excerpt:'Le modèle de génération vidéo le plus attendu de l\'année est enfin disponible. Analyse de ses capacités et limites.',cat:'release',color:'rgba(124,58,237,.25)',date:'Aujourd\'hui',read:'3 min'},
+  {id:'luma-guide',title:'Comment utiliser Luma Dream Machine gratuitement',excerpt:'Guide complet étape par étape pour générer vos premières vidéos avec la nouvelle IA ultra-rapide de Luma Labs.',cat:'tutorial',color:'rgba(217,70,239,.2)',date:'Hier',read:'5 min'},
+  {id:'runway-vs-pika',title:'Runway Gen-3 vs Pika 1.0 : lequel choisir en 2025 ?',excerpt:'Comparaison détaillée des deux plateformes les plus populaires de génération vidéo. Prix, qualité, cas d\'usage.',cat:'analysis',color:'rgba(99,102,241,.2)',date:'Il y a 3 jours',read:'7 min'},
+  {id:'kling-update',title:'Kling 1.5 : le modèle chinois qui défie Sora',excerpt:'La nouvelle version de Kling de Kuaishou impressionne par sa qualité et sa vitesse de génération.',cat:'news',color:'rgba(16,185,129,.2)',date:'Il y a 5 jours',read:'4 min'},
+  {id:'heygen-avatars',title:'HeyGen 2.0 : des avatars IA encore plus réalistes',excerpt:'La nouvelle version de HeyGen repousse les limites du réalisme avec des avatars quasi-indiscernables de vrais humains.',cat:'release',color:'rgba(244,63,94,.2)',date:'Il y a 1 semaine',read:'3 min'},
+  {id:'stable-video-guide',title:'Stable Video Diffusion : guide complet pour débutants',excerpt:'Tout ce qu\'il faut savoir pour commencer avec le modèle open source de Stability AI.',cat:'tutorial',color:'rgba(236,72,153,.2)',date:'Il y a 2 semaines',read:'10 min'}
+];
+
+var icons = [
+  '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>',
+  '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
+  '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  '<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>',
+  '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'
+];
+
+var catLabels = {release:'Release',tutorial:'Tutoriel',analysis:'Analyse',news:'News'};
+var catClasses = {release:'cat-release',tutorial:'cat-tutorial',analysis:'cat-analysis',news:'cat-news'};
+
+var currentCat = 'all';
+
+function renderArticles(){
+  var filtered = currentCat==='all' ? ARTICLES : ARTICLES.filter(function(a){return a.cat===currentCat;});
+  var grid = document.getElementById('articlesGrid');
+  if(filtered.length===0){grid.innerHTML='<p style="color:var(--fg3);padding:2rem 0">Aucun article dans cette catégorie pour le moment.</p>';return;}
+  grid.innerHTML = filtered.map(function(a,i){
+    return '<a class="article-card" href="/blog/article/?id='+a.id+'">'+
+      '<div class="card-img" style="background:'+a.color+'">'+
+        '<div class="card-img-inner">'+
+          '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round">'+icons[i%icons.length]+'</svg>'+
+        '</div>'+
+      '</div>'+
+      '<div class="card-body">'+
+        '<span class="article-cat-badge '+catClasses[a.cat]+'">'+catLabels[a.cat]+'</span>'+
+        '<div class="card-title">'+a.title+'</div>'+
+        '<div class="card-excerpt">'+a.excerpt+'</div>'+
+        '<div class="card-meta">'+a.date+'<span class="meta-dot" style="width:3px;height:3px;border-radius:50%;background:var(--bg4)"></span>'+a.read+' de lecture</div>'+
+      '</div></a>';
+  }).join('');
+}
+
+document.getElementById('catFilters').addEventListener('click',function(e){
+  var btn=e.target.closest('.cat-btn');
+  if(!btn)return;
+  document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  currentCat=btn.getAttribute('data-cat');
+  renderArticles();
+});
+
+function handleNL(){
+  var em=document.getElementById('nlEmail').value.trim();
+  if(!em||!em.includes('@')){showToast('Entrez une adresse valide');return;}
+  showToast('Abonné(e) avec succès !');
+  document.getElementById('nlEmail').value='';
+}
+
+var toastTimer;
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){t.classList.remove('show');},3000);
+}
+
+renderArticles();
+</script>
+</body>
+</html>
