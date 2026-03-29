@@ -1,901 +1,604 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valtlens — AI Video Models Directory</title>
 
-    <!-- SEO Primary -->
-    <title>ValtLens — Comparatif IA Vidéo 2026 | Sora, Runway, Pika, Kling & 16+ Outils</title>
-    <meta name="title" content="ValtLens — Comparatif IA Vidéo 2026 | Sora, Runway, Pika, Kling & 16+ Outils">
-    <meta name="description" content="Découvrez les 20+ meilleurs modèles de génération vidéo IA en 2026. Comparatif complet : prix, fonctionnalités, essais gratuits. Trouvez l'outil parfait pour vos créations.">
-    <meta name="keywords" content="IA vidéo, génération vidéo IA, Sora OpenAI, Runway Gen-3, Pika Labs, Kling AI, texte vers vidéo, AI video generator, outil création vidéo, intelligence artificielle vidéo 2026">
-    <meta name="author" content="ValtLens">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://valtlens.com">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valtlens.com">
-    <meta property="og:title" content="ValtLens — Comparatif IA Vidéo 2026 | 20+ Outils Testés & Classés">
-    <meta property="og:description" content="Le guide ultime des modèles de génération vidéo IA. Comparez Sora, Runway, Pika, Kling et 16+ autres outils. Essais gratuits, prix, fonctionnalités.">
-    <meta property="og:image" content="https://valtlens.com/og-image.jpg">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://valtlens.com">
-    <meta name="twitter:title" content="ValtLens — Comparatif IA Vidéo 2026">
-    <meta name="twitter:description" content="20+ modèles IA vidéo comparés : prix, fonctionnalités, essais gratuits. Trouvez votre outil idéal en 2 minutes.">
-    <meta name="twitter:image" content="https://valtlens.com/twitter-image.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-    <!-- Preconnect -->
+    <!-- Fonts Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Structured Data (Schema.org) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "ValtLens",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-        },
-        "description": "Comparatif et annuaire des meilleurs modèles de génération vidéo par intelligence artificielle.",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "2847"
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#09090b',
+                        foreground: '#fafafa',
+                        card: '#18181b',
+                        'card-hover': '#27272a',
+                        primary: '#8b5cf6',
+                        'primary-foreground': '#ffffff',
+                        secondary: '#f4f4f5',
+                        muted: '#71717a',
+                        accent: '#a855f7',
+                        border: '#27272a',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    }
+                }
+            }
         }
-    }
     </script>
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-            "@type": "Question",
-            "name": "Quel est le meilleur générateur vidéo IA en 2026 ?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sora d'OpenAI est considéré comme le plus avancé, suivi de Runway Gen-3 pour un usage professionnel et Pika pour les débutants."
-            }
-        }, {
-            "@type": "Question",
-            "name": "Y a-t-il des générateurs vidéo IA gratuits ?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Oui, plusieurs outils comme Pika, Haiper, Luma Dream Machine et PixVerse offrent des versions gratuites avec des crédits limités."
-            }
-        }, {
-            "@type": "Question",
-            "name": "Combien coûte un générateur vidéo IA ?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Les prix varient de gratuit (versions freemium) à 30-150€/mois pour les abonnements professionnels."
-            }
-        }]
-    }
-    </script>
+    <style>
+        /* Custom Premium Styles */
+        body {
+            background-color: #09090b;
+            color: #fafafa;
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-premium {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-premium {
+            background: linear-gradient(145deg, #18181b 0%, #0f0f10 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-premium:hover {
+            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.2);
+        }
+
+        .button-glow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .button-glow:hover::before {
+            left: 100%;
+        }
+
+        .search-glow:focus {
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .tag-premium {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tag-premium:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .hero-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #27272a 25%, #3f3f46 50%, #27272a 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
 </head>
-<body>
-    <!-- Skip Link -->
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<body class="antialiased overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Navigation principale">
-        <div class="container nav-container">
-            <a href="/" class="logo" aria-label="ValtLens - Accueil">
-                <span class="logo-icon" aria-hidden="true">🎬</span>
-                <span class="logo-text">ValtLens</span>
-            </a>
+    <!-- Navigation Premium -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 group cursor-pointer">
+                    <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:shadow-violet-500/50 transition-shadow duration-300">
+                        <i data-lucide="aperture" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-white group-hover:text-gradient transition-all duration-300">
+                        Valtlens
+                    </span>
+                </div>
 
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a href="#featured" role="menuitem">✨ Vedette</a></li>
-                <li role="none"><a href="#models" role="menuitem">🎬 Modèles</a></li>
-                <li role="none"><a href="#comparison" role="menuitem">📊 Comparateur</a></li>
-                <li role="none"><a href="#faq" role="menuitem">❓ FAQ</a></li>
-            </ul>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">Models</a>
+                    <a href="#" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">Datasets</a>
+                    <a href="#" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">API</a>
+                    <a href="#" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">Community</a>
+                </div>
 
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Dark/Light mode">
-                    <span class="theme-icon">🌙</span>
-                </button>
-                <button class="favorites-toggle" id="favoritesBtn" aria-label="Mes favoris" title="Voir les favoris">
-                    <span>❤️</span>
-                    <span class="favorites-count" id="favoritesCount">0</span>
-                </button>
+                <!-- Actions -->
+                <div class="flex items-center gap-4">
+                    <button class="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-all duration-200">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        Star
+                    </button>
+                    <button class="button-glow px-6 py-2.5 rounded-full bg-white text-black text-sm font-semibold hover:bg-zinc-200 transition-colors duration-200 shadow-lg shadow-white/10">
+                        Submit Model
+                    </button>
+                </div>
             </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#featured">✨ Vedette</a>
-        <a href="#models">🎬 Modèles</a>
-        <a href="#comparison">📊 Comparateur</a>
-        <a href="#faq">❓ FAQ</a>
-        <a href="#newsletter">📧 Newsletter</a>
-    </div>
+    <!-- Hero Section Premium -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="hero-blob w-96 h-96 bg-violet-600 rounded-full top-20 -left-20"></div>
+        <div class="hero-blob w-80 h-80 bg-indigo-600 rounded-full bottom-0 right-0 animation-delay-2000"></div>
+        <div class="hero-blob w-64 h-64 bg-fuchsia-600 rounded-full top-40 right-20 animation-delay-4000"></div>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-bg" aria-hidden="true"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <span>🚀</span>
-                        <span>Mis à jour : Janvier 2026</span>
-                    </div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 
-                    <h1 id="hero-title">
-                        Comparez les <span class="gradient-text">20+ Meilleurs Modèles</span> de Génération Vidéo IA
-                    </h1>
-
-                    <p class="hero-description">
-                        Le guide le plus complet pour trouver l'outil IA parfait.
-                        <span class="highlight">Sora, Runway, Pika, Kling</span> et 16+ autres outils
-                        testés, comparés et classés par usage.
-                    </p>
-
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">Modèles testés</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">50K+</span>
-                            <span class="stat-label">Visiteurs/mois</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">4.9/5</span>
-                            <span class="stat-label">Note moyenne</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-cta">
-                        <a href="#models" class="btn btn-primary">
-                            🔍 Explorer les modèles
-                            <span class="btn-arrow" aria-hidden="true">→</span>
-                        </a>
-                        <a href="#comparison" class="btn btn-secondary">
-                            📊 Voir le comparatif
-                        </a>
-                    </div>
-
-                    <div class="hero-trust">
-                        <span>Utilisé par des équipes chez :</span>
-                        <div class="trust-logos">
-                            <span>Google</span>
-                            <span>Meta</span>
-                            <span>OpenAI</span>
-                            <span>Runway</span>
-                            <span>+500 autres</span>
-                        </div>
-                    </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-premium mb-8 animate-fade-in border border-white/10">
+                    <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-sm font-medium text-zinc-300">Now indexing 500+ AI video models</span>
                 </div>
 
-                <div class="hero-image" aria-hidden="true">
-                    <div class="floating-card card-1">
-                        <span>✨</span>
-                        <span>Sora - 60s</span>
-                    </div>
-                    <div class="floating-card card-2">
-                        <span>⚡</span>
-                        <span>Runway - 4K</span>
-                    </div>
-                    <div class="floating-card card-3">
-                        <span>🎯</span>
-                        <span>Pika - Gratuit</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <!-- Title -->
+                <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 animate-slide-up">
+                    The <span class="text-gradient">Premium</span><br>
+                    AI Video Directory
+                </h1>
 
-        <!-- Featured Section -->
-        <section id="featured" class="section featured-section" aria-labelledby="featured-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="featured-title" class="section-title">
-                        <span aria-hidden="true">🏆</span>
-                        Modèles en Vedette
-                    </h2>
-                    <p class="section-subtitle">Nos coups de cœur sélectionnés par nos experts</p>
-                </div>
+                <p class="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.1s;">
+                    Discover, compare, and deploy cutting-edge video generation models.
+                    From text-to-video to neural rendering, find the perfect AI for your creative workflow.
+                </p>
 
-                <div class="featured-grid">
-                    <!-- Featured Card 1 -->
-                    <article class="featured-card editor-choice">
-                        <div class="featured-badge">🏆 Choix de l'Éditeur</div>
-                        <div class="featured-header">
-                            <h3>Sora</h3>
-                            <p class="developer">par OpenAI</p>
-                        </div>
-                        <p class="description">
-                            Le modèle le plus avancé du marché. Générez des vidéos ultra-réalistes
-                            jusqu'à 60 secondes avec une cohérence impressionnante.
-                        </p>
-                        <div class="featured-specs">
-                            <div class="spec">
-                                <span class="spec-icon">⏱️</span>
-                                <span>60s max</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-icon">📺</span>
-                                <span>1080p</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-icon">⭐</span>
-                                <span>4.9/5</span>
-                            </div>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Texte-vers-Vidéo</span>
-                            <span class="tag">Haute Qualité</span>
-                            <span class="tag">API</span>
-                        </div>
-                        <a href="https://openai.com/sora" target="_blank" rel="noopener sponsored" class="btn btn-full">
-                            🚀 Essayer Sora
-                        </a>
-                    </article>
-
-                    <!-- Featured Card 2 -->
-                    <article class="featured-card pro-choice">
-                        <div class="featured-badge pro">💼 Choix des Pros</div>
-                        <div class="featured-header">
-                            <h3>Runway Gen-3</h3>
-                            <p class="developer">par Runway</p>
-                        </div>
-                        <p class="description">
-                            L'outil préféré des professionnels. Contrôle avancé,
-                            qualité cinéma et intégrations professionnelles.
-                        </p>
-                        <div class="featured-specs">
-                            <div class="spec">
-                                <span class="spec-icon">⏱️</span>
-                                <span>40s max</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-icon">📺</span>
-                                <span>4K</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-icon">⭐</span>
-                                <span>4.8/5</span>
-                            </div>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Professionnel</span>
-                            <span class="tag">Contrôle Motion</span>
-                            <span class="tag">API</span>
-                        </div>
-                        <a href="https://runwayml.com" target="_blank" rel="noopener sponsored" class="btn btn-full">
-                            🚀 Essayer Runway
-                        </a>
-                    </article>
-
-                    <!-- Featured Card 3 -->
-                    <article class="featured-card best-value">
-                        <div class="featured-badge value">💎 Meilleur Rapport Qualité/Prix</div>
-                        <div class="featured-header">
-                            <h3>Pika</h3>
-                            <p class="developer">par Pika Labs</p>
-                        </div>
-                        <p class="description">
-                            Puissant, rapide et abordable. Parfait pour les créateurs
-                            qui veulent des résultats rapides sans se ruiner.
-                        </p>
-                        <div class="featured-specs">
-                            <div class="spec">
-                                <span class="spec-icon">⏱️</span>
-                                <span>30s max</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-icon">📺</span>
-                                <span>1080p</span>
-                            </div>
-                            <div class="spec">
-                                <span class="spec-icon">⭐</span>
-                                <span>4.7/5</span>
-                            </div>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Freemium</span>
-                            <span class="tag">Rapide</span>
-                            <span class="tag">Débutant</span>
-                        </div>
-                        <a href="https://pika.art" target="_blank" rel="noopener sponsored" class="btn btn-full">
-                            🚀 Essayer Pika
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Search & Filter Section -->
-        <section id="models" class="section models-section" aria-labelledby="models-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="models-title" class="section-title">
-                        <span aria-hidden="true">🎬</span>
-                        Tous les Modèles IA Vidéo
-                    </h2>
-                    <p class="section-subtitle">Filtrez, comparez et trouvez l'outil parfait pour vos besoins</p>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="search-container">
-                    <div class="search-box">
-                        <span class="search-icon">🔍</span>
-                        <input
-                            type="text"
-                            id="searchInput"
-                            placeholder="Rechercher un modèle, une fonctionnalité..."
-                            aria-label="Rechercher un modèle"
-                            autocomplete="off"
-                        >
-                        <kbd class="search-shortcut">/</kbd>
-                        <button class="search-clear" id="searchClear" aria-label="Effacer la recherche" style="display: none;">
-                            ✕
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Filter Bar -->
-                <div class="filter-container">
-                    <div class="filter-group">
-                        <button class="filter-btn active" data-filter="all">
-                            <span>🎯</span> Tous
-                        </button>
-                        <button class="filter-btn" data-filter="text-to-video">
-                            <span>✍️</span> Texte → Vidéo
-                        </button>
-                        <button class="filter-btn" data-filter="image-to-video">
-                            <span>🖼️</span> Image → Vidéo
-                        </button>
-                        <button class="filter-btn" data-filter="free">
-                            <span>💎</span> Gratuit
-                        </button>
-                        <button class="filter-btn" data-filter="api">
-                            <span>⚙️</span> API
-                        </button>
-                    </div>
-
-                    <div class="sort-group">
-                        <label for="sortSelect" class="sort-label">Trier par :</label>
-                        <select id="sortSelect" class="sort-select">
-                            <option value="rating">⭐ Meilleures notes</option>
-                            <option value="name">📝 Nom (A-Z)</option>
-                            <option value="duration">⏱️ Durée (croissant)</option>
-                            <option value="price">💰 Prix (croissant)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Results Count -->
-                <div class="results-info">
-                    <span id="resultsCount">20 modèles trouvés</span>
-                    <button id="resetFilters" class="reset-btn" style="display: none;">
-                        🔄 Réinitialiser
-                    </button>
-                </div>
-
-                <!-- Models Grid -->
-                <div class="models-grid" id="modelsGrid" role="list">
-                    <!-- Model cards will be populated by JavaScript -->
-                    <div class="loading-skeleton">
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                    </div>
-                </div>
-
-                <!-- Load More -->
-                <div class="load-more-container">
-                    <button id="loadMoreBtn" class="btn btn-outline">
-                        📥 Charger plus de modèles
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Comparison Section -->
-        <section id="comparison" class="section comparison-section" aria-labelledby="comparison-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="comparison-title" class="section-title">
-                        <span aria-hidden="true">📊</span>
-                        Comparatif Détaillé
-                    </h2>
-                    <p class="section-subtitle">Comparez côte à côte les spécifications de chaque modèle</p>
-                </div>
-
-                <!-- Comparison Tool -->
-                <div class="comparison-tool">
-                    <p class="comparison-instruction">
-                        <span>🎯</span> Sélectionnez jusqu'à 3 modèles à comparer
-                    </p>
-                    <div class="comparison-slots" id="comparisonSlots">
-                        <div class="comparison-slot empty" data-slot="0">
-                            <span class="slot-placeholder">+ Modèle 1</span>
-                        </div>
-                        <div class="comparison-slot empty" data-slot="1">
-                            <span class="slot-placeholder">+ Modèle 2</span>
-                        </div>
-                        <div class="comparison-slot empty" data-slot="2">
-                            <span class="slot-placeholder">+ Modèle 3</span>
-                        </div>
-                    </div>
-                    <button id="clearComparison" class="btn btn-outline btn-sm" style="display: none;">
-                        🗑️ Tout effacer
-                    </button>
-                </div>
-
-                <!-- Comparison Table -->
-                <div class="comparison-table-wrapper">
-                    <table class="comparison-table" aria-describedby="comparison-title">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="col-feature">🎬 Caractéristique</th>
-                                <th scope="col" class="col-model">🌟 Sora</th>
-                                <th scope="col" class="col-model">⚡ Runway Gen-3</th>
-                                <th scope="col" class="col-model">🎯 Pika</th>
-                                <th scope="col" class="col-model">🎬 Kling</th>
-                                <th scope="col" class="col-model">🔓 Stable Video</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Développeur</strong></td>
-                                <td>OpenAI</td>
-                                <td>Runway</td>
-                                <td>Pika Labs</td>
-                                <td>Kuaishou</td>
-                                <td>Stability AI</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Durée Max</strong></td>
-                                <td>60 secondes</td>
-                                <td>40 secondes</td>
-                                <td>30 secondes</td>
-                                <td>2 minutes</td>
-                                <td>4 secondes</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Résolution</strong></td>
-                                <td>1080p</td>
-                                <td>4K</td>
-                                <td>1080p</td>
-                                <td>1080p</td>
-                                <td>1024x576</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tarification</strong></td>
-                                <td>Abonnement</td>
-                                <td>Crédits</td>
-                                <td>Freemium</td>
-                                <td>Free/Premium</td>
-                                <td>Open Source</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Idéal Pour</strong></td>
-                                <td>Storytelling</td>
-                                <td>Production Pro</td>
-                                <td>Prototypage</td>
-                                <td>Long format</td>
-                                <td>Développeurs</td>
-                            </tr>
-                            <tr>
-                                <td><strong>API</strong></td>
-                                <td>✅ Oui</td>
-                                <td>✅ Oui</td>
-                                <td>❌ Non</td>
-                                <td>❌ Non</td>
-                                <td>✅ Oui</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Essai Gratuit</strong></td>
-                                <td>❌ Non</td>
-                                <td>✅ Oui</td>
-                                <td>✅ Oui</td>
-                                <td>✅ Oui</td>
-                                <td>✅ Oui</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Note</strong></td>
-                                <td>⭐ 4.9/5</td>
-                                <td>⭐ 4.8/5</td>
-                                <td>⭐ 4.7/5</td>
-                                <td>⭐ 4.6/5</td>
-                                <td>⭐ 4.5/5</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Use Cases Section -->
-        <section class="section use-cases-section" aria-labelledby="usecases-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="usecases-title" class="section-title">
-                        <span aria-hidden="true">🎯</span>
-                        Quel Modèle Choisir ?
-                    </h2>
-                    <p class="section-subtitle">Trouvez l'outil parfait selon votre usage</p>
-                </div>
-
-                <div class="use-cases-grid">
-                    <article class="use-case-card">
-                        <div class="use-case-icon">🎬</div>
-                        <h3>Créateurs de Contenu</h3>
-                        <p>Pour les YouTubeurs, TikTokeurs et influenceurs qui veulent du contenu rapide et engageant.</p>
-                        <div class="use-case-recommendation">
-                            <span class="recommend-label">Recommandé :</span>
-                            <span class="recommend-tools"><strong>Pika</strong>, <strong>Haiper</strong>, <strong>Luma</strong></span>
-                        </div>
-                    </article>
-
-                    <article class="use-case-card">
-                        <div class="use-case-icon">💼</div>
-                        <h3>Professionnels</h3>
-                        <p>Pour les agences, studios et entreprises qui ont besoin de qualité professionnelle.</p>
-                        <div class="use-case-recommendation">
-                            <span class="recommend-label">Recommandé :</span>
-                            <span class="recommend-tools"><strong>Runway Gen-3</strong>, <strong>Sora</strong></span>
-                        </div>
-                    </article>
-
-                    <article class="use-case-card">
-                        <div class="use-case-icon">💻</div>
-                        <h3>Développeurs</h3>
-                        <p>Pour intégrer la génération vidéo dans vos applications via API.</p>
-                        <div class="use-case-recommendation">
-                            <span class="recommend-label">Recommandé :</span>
-                            <span class="recommend-tools"><strong>Stable Video</strong>, <strong>Runway API</strong></span>
-                        </div>
-                    </article>
-
-                    <article class="use-case-card">
-                        <div class="use-case-icon">🎨</div>
-                        <h3>Artistes & Designers</h3>
-                        <p>Pour créer des visuels artistiques et des animations stylisées.</p>
-                        <div class="use-case-recommendation">
-                            <span class="recommend-label">Recommandé :</span>
-                            <span class="recommend-tools"><strong>PixVerse</strong>, <strong>DomoAI</strong>, <strong>Krea</strong></span>
-                        </div>
-                    </article>
-
-                    <article class="use-case-card">
-                        <div class="use-case-icon">🏢</div>
-                        <h3>Entreprises</h3>
-                        <p>Pour les vidéos de formation, présentations et communication interne.</p>
-                        <div class="use-case-recommendation">
-                            <span class="recommend-label">Recommandé :</span>
-                            <span class="recommend-tools"><strong>Synthesia</strong>, <strong>HeyGen</strong></span>
-                        </div>
-                    </article>
-
-                    <article class="use-case-card">
-                        <div class="use-case-icon">🎮</div>
-                        <h3>Gaming & Animation</h3>
-                        <p>Pour créer des cinématiques, trailers et contenus animés style anime/cartoon.</p>
-                        <div class="use-case-recommendation">
-                            <span class="recommend-label">Recommandé :</span>
-                            <span class="recommend-tools"><strong>DomoAI</strong>, <strong>PixVerse</strong></span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="section faq-section" aria-labelledby="faq-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="faq-title" class="section-title">
-                        <span aria-hidden="true">❓</span>
-                        Questions Fréquentes
-                    </h2>
-                    <p class="section-subtitle">Tout ce que vous devez savoir sur la génération vidéo IA</p>
-                </div>
-
-                <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
-                    <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button class="faq-question" aria-expanded="false">
-                            <span itemprop="name">Quel est le meilleur générateur vidéo IA en 2026 ?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text">
-                                <p><strong>Sora d'OpenAI</strong> est actuellement considéré comme le modèle le plus avancé en termes de qualité et de cohérence. Cependant, le "meilleur" dépend de vos besoins :</p>
-                                <ul>
-                                    <li><strong>Qualité maximale :</strong> Sora, Runway Gen-3</li>
-                                    <li><strong>Rapport qualité/prix :</strong> Pika, Kling</li>
-                                    <li><strong>Pour débuter :</strong> Pika, Luma Dream Machine</li>
-                                    <li><strong>Usage professionnel :</strong> Runway Gen-3, Synthesia</li>
-                                    <li><strong>Open source :</strong> Stable Video Diffusion</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button class="faq-question" aria-expanded="false">
-                            <span itemprop="name">Y a-t-il des générateurs vidéo IA 100% gratuits ?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text">
-                                <p>Plusieurs outils offrent des versions <strong>freemium</strong> avec des crédits gratuits :</p>
-                                <ul>
-                                    <li><strong>Pika</strong> : Essai gratuit avec crédits limités</li>
-                                    <li><strong>Luma Dream Machine</strong> : ~30 vidéos gratuites/mois</li>
-                                    <li><strong>Haiper</strong> : Crédits quotidiens gratuits</li>
-                                    <li><strong>PixVerse</strong> : Version gratuite généreuse</li>
-                                    <li><strong>Stable Video Diffusion</strong> : 100% gratuit (open source, à installer localement)</li>
-                                </ul>
-                                <p>Les versions payantes offrent plus de crédits, une meilleure qualité et l'absence de filigrane.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button class="faq-question" aria-expanded="false">
-                            <span itemprop="name">Combien coûte un abonnement pour un générateur vidéo IA ?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text">
-                                <p>Les prix varient considérablement selon l'outil et l'usage :</p>
-                                <ul>
-                                    <li><strong>Entrée de gamme :</strong> 8-15€/mois (Pika, Luma)</li>
-                                    <li><strong>Intermédiaire :</strong> 20-50€/mois (Runway, Kling)</li>
-                                    <li><strong>Professionnel :</strong> 60-150€/mois (Runway Pro, Synthesia)</li>
-                                    <li><strong>Entreprise :</strong> Sur devis (HeyGen, Synthesia Business)</li>
-                                </ul>
-                                <p>La plupart fonctionnent avec un système de crédits : plus la vidéo est longue et de qualité, plus elle consomme de crédits.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button class="faq-question" aria-expanded="false">
-                            <span itemprop="name">Peut-on utiliser ces vidéos à des fins commerciales ?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text">
-                                <p><strong>Oui, mais cela dépend de votre abonnement :</strong></p>
-                                <ul>
-                                    <li><strong>Gratuit/Freemium :</strong> Usage personnel uniquement, souvent avec filigrane</li>
-                                    <li><strong>Payant :</strong> Droits commerciaux inclus (vérifiez les CGU de chaque plateforme)</li>
-                                    <li><strong>Entreprise :</strong> Droits commerciaux complets + licence étendue</li>
-                                </ul>
-                                <p><strong>Attention :</strong> Certains modèles comme Sora peuvent avoir des restrictions sur les usages sensibles (politique, deepfakes, etc.).</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button class="faq-question" aria-expanded="false">
-                            <span itemprop="name">Quelle est la durée maximale d'une vidéo générée par IA ?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text">
-                                <p>Les durées varient selon les modèles :</p>
-                                <ul>
-                                    <li><strong>Le plus long :</strong> Kling (2 minutes), HeyGen (5 min), Synthesia (10 min)</li>
-                                    <li><strong>Standard :</strong> Sora (60s), Runway Gen-3 (40s), Pika (30s)</li>
-                                    <li><strong>Court :</strong> Stable Video (4s), Haiper (8s), Luma (10s)</li>
-                                </ul>
-                                <p>Astuce : Vous pouvez générer plusieurs clips et les assembler dans un logiciel de montage pour créer des vidéos plus longues.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button class="faq-question" aria-expanded="false">
-                            <span itemprop="name">Faut-il des compétences techniques pour utiliser ces outils ?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text">
-                                <p><strong>Non, la plupart sont conçus pour être accessibles :</strong></p>
-                                <ul>
-                                    <li><strong>Débutant :</strong> Pika, Luma, Haiper (interface simple, résultats rapides)</li>
-                                    <li><strong>Intermédiaire :</strong> Runway, Kling, PixVerse (plus d'options de contrôle)</li>
-                                    <li><strong>Avancé :</strong> Stable Video Diffusion (nécessite installation locale ou API)</li>
-                                </ul>
-                                <p>La plupart fonctionnent sur le principe du "text-to-video" : vous écrivez un prompt, l'IA génère la vidéo.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section id="newsletter" class="section newsletter-section" aria-labelledby="newsletter-title">
-            <div class="container">
-                <div class="newsletter-content">
-                    <div class="newsletter-badge">📧</div>
-                    <h2 id="newsletter-title">Restez Informé des Dernières Sorties IA</h2>
-                    <p>
-                        Recevez chaque semaine les nouveautés, tests exclusifs et bons plans
-                        directement dans votre boîte mail. <strong>Pas de spam, promis.</strong>
-                    </p>
-
-                    <form class="newsletter-form" id="newsletterForm">
-                        <div class="form-group">
+                <!-- Search Bar Premium -->
+                <div class="max-w-3xl mx-auto mb-12 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative glass-premium rounded-2xl flex items-center p-2 border border-white/10">
+                            <i data-lucide="search" class="w-6 h-6 text-zinc-400 ml-4"></i>
                             <input
-                                type="email"
-                                id="newsletterEmail"
-                                placeholder="votre@email.com"
-                                aria-label="Votre adresse email"
-                                required
+                                type="text"
+                                placeholder="Search models (e.g., 'Stable Video Diffusion', '4K generation')..."
+                                class="flex-1 bg-transparent border-none outline-none text-white placeholder-zinc-500 px-4 py-4 text-lg search-glow rounded-xl"
                             >
-                            <button type="submit" class="btn btn-primary">
-                                🚀 Je m'abonne
+                            <div class="hidden md:flex items-center gap-2 px-4 py-2 bg-zinc-800/50 rounded-lg border border-zinc-700/50 mr-2">
+                                <span class="text-xs text-zinc-400">⌘</span>
+                                <span class="text-xs text-zinc-400">K</span>
+                            </div>
+                            <button class="px-8 py-4 bg-white text-black rounded-xl font-semibold hover:bg-zinc-200 transition-all duration-200 button-glow">
+                                Search
                             </button>
                         </div>
-                        <p class="form-disclaimer">
-                            🔒 Vos données sont sécurisées. Désinscription en 1 clic.
-                        </p>
-                    </form>
-
-                    <div class="newsletter-stats">
-                        <span>👥 12,500+ abonnés</span>
-                        <span>⭐ 4.9/5 de satisfaction</span>
-                        <span>📬 1 email/semaine</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- CTA Section -->
-        <section class="section cta-section" aria-label="Appel à l'action">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Prêt à Créer Vos Premières Vidéos IA ?</h2>
-                    <p>
-                        Commencez dès maintenant avec l'un de nos modèles recommandés.
-                        La plupart offrent un essai gratuit !
+                <!-- Tags -->
+                <div class="flex flex-wrap justify-center gap-3 animate-slide-up" style="animation-delay: 0.3s;">
+                    <button class="tag-premium px-5 py-2.5 rounded-full text-sm font-medium text-zinc-300 flex items-center gap-2">
+                        <i data-lucide="wand-2" class="w-4 h-4 text-violet-400"></i>
+                        Text-to-Video
+                    </button>
+                    <button class="tag-premium px-5 py-2.5 rounded-full text-sm font-medium text-zinc-300 flex items-center gap-2">
+                        <i data-lucide="image" class="w-4 h-4 text-indigo-400"></i>
+                        Image-to-Video
+                    </button>
+                    <button class="tag-premium px-5 py-2.5 rounded-full text-sm font-medium text-zinc-300 flex items-center gap-2">
+                        <i data-lucide="scissors" class="w-4 h-4 text-fuchsia-400"></i>
+                        Video Editing
+                    </button>
+                    <button class="tag-premium px-5 py-2.5 rounded-full text-sm font-medium text-zinc-300 flex items-center gap-2">
+                        <i data-lucide="code-2" class="w-4 h-4 text-emerald-400"></i>
+                        Open Source
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Grid Premium -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
+            <div>
+                <h2 class="font-display text-3xl font-bold text-white mb-2">Featured Models</h2>
+                <p class="text-zinc-400">Hand-picked selection of the best video AI models</p>
+            </div>
+
+            <div class="flex items-center gap-3 bg-zinc-900/50 p-1 rounded-xl border border-zinc-800">
+                <button class="p-2 rounded-lg bg-zinc-800 text-white shadow-sm">
+                    <i data-lucide="grid" class="w-5 h-5"></i>
+                </button>
+                <button class="p-2 rounded-lg text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="list" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1 -->
+            <article class="card-premium rounded-2xl overflow-hidden group cursor-pointer">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-indigo-600/20 group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-2xl shadow-violet-500/30 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="sparkles" class="w-10 h-10 text-white"></i>
+                        </div>
+                    </div>
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-xs font-semibold text-white border border-white/10">
+                            Popular
+                        </span>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-violet-400 transition-colors">Runway Gen-2</h3>
+                            <div class="flex items-center gap-2 text-sm text-zinc-500">
+                                <span>by RunwayML</span>
+                                <span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+                                <span class="text-emerald-400 flex items-center gap-1">
+                                    <i data-lucide="check-circle-2" class="w-3 h-3"></i>
+                                    Verified
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 bg-zinc-800 px-2 py-1 rounded-lg border border-zinc-700">
+                            <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                            <span class="text-sm font-bold text-white">4.9</span>
+                        </div>
+                    </div>
+
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+                        High-fidelity video generation with precise motion control, camera movements, and cinematic quality output up to 4K resolution.
                     </p>
-                    <div class="cta-buttons">
-                        <a href="#models" class="btn btn-primary btn-lg">
-                            🔍 Explorer les modèles
-                        </a>
-                        <a href="#comparison" class="btn btn-outline btn-lg">
-                            📊 Voir le comparatif
-                        </a>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Text-to-Video</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">4K</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">API</span>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button class="flex-1 py-2.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-200 flex items-center justify-center gap-2 button-glow">
+                            <span>Try Demo</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </button>
+                        <button class="p-2.5 rounded-xl border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-all duration-200">
+                            <i data-lucide="bookmark" class="w-5 h-5"></i>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </article>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo">
-                        <span>🎬</span>
-                        <span>ValtLens</span>
+            <!-- Card 2 -->
+            <article class="card-premium rounded-2xl overflow-hidden group cursor-pointer">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-600/20 to-rose-600/20 group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-2xl shadow-pink-500/30 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="video" class="w-10 h-10 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md text-xs font-semibold text-emerald-300 border border-emerald-500/30">
+                            Open Source
+                        </span>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-pink-400 transition-colors">Stable Video Diffusion</h3>
+                            <div class="flex items-center gap-2 text-sm text-zinc-500">
+                                <span>by Stability AI</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 bg-zinc-800 px-2 py-1 rounded-lg border border-zinc-700">
+                            <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                            <span class="text-sm font-bold text-white">4.8</span>
+                        </div>
+                    </div>
+
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+                        Image-to-video generation model with 1.3 billion parameters. Highly customizable and self-hostable for enterprise use.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Img2Vid</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Self-hosted</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Free</span>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button class="flex-1 py-2.5 rounded-xl bg-zinc-800 text-white font-semibold text-sm hover:bg-zinc-700 transition-all duration-200 border border-zinc-700 flex items-center justify-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            <span>View Code</span>
+                        </button>
+                        <button class="p-2.5 rounded-xl border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-all duration-200">
+                            <i data-lucide="bookmark" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card-premium rounded-2xl overflow-hidden group cursor-pointer">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-600/20 to-blue-600/20 group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-2xl shadow-cyan-500/30 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="zap" class="w-10 h-10 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">Pika 1.0</h3>
+                            <div class="flex items-center gap-2 text-sm text-zinc-500">
+                                <span>by Pika Labs</span>
+                                <span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+                                <span class="text-cyan-400 flex items-center gap-1">
+                                    <i data-lucide="trending-up" class="w-3 h-3"></i>
+                                    Trending
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 bg-zinc-800 px-2 py-1 rounded-lg border border-zinc-700">
+                            <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                            <span class="text-sm font-bold text-white">4.7</span>
+                        </div>
+                    </div>
+
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+                        Fast video generation with extended duration capabilities. Real-time editing and inpainting features for creative workflows.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Fast</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Editing</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/50 text-xs text-zinc-400">Web App</span>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button class="flex-1 py-2.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-200 flex items-center justify-center gap-2 button-glow">
+                            <span>Try Demo</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </button>
+                        <button class="p-2.5 rounded-xl border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-all duration-200">
+                            <i data-lucide="bookmark" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Load More -->
+        <div class="mt-12 text-center">
+            <button class="px-8 py-4 rounded-full glass-premium border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all duration-300 font-medium flex items-center gap-2 mx-auto group">
+                <span>Load More Models</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="relative rounded-3xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/20 to-indigo-600/20"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+
+            <div class="relative p-12 md:p-20 text-center">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Stay ahead of the curve</h2>
+                <p class="text-zinc-400 mb-8 max-w-xl mx-auto">Get weekly updates on new video AI models, tutorials, and exclusive deals delivered to your inbox.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        class="flex-1 px-6 py-4 rounded-xl bg-zinc-900/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
+                    >
+                    <button class="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors button-glow">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Premium -->
+    <footer class="border-t border-zinc-800/50 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+                            <i data-lucide="aperture" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-display font-bold text-xl text-white">Valtlens</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm leading-relaxed">
+                        The most comprehensive directory of AI video generation models. Curated by developers, for developers.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Models</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Datasets</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-zinc-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-zinc-500">© 2024 Valtlens. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-zinc-400 hover:text-white transition-colors">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
                     </a>
-                    <p>
-                        Le comparatif de référence des outils de génération vidéo par IA.
-                        Mis à jour régulièrement par notre équipe d'experts.
-                    </p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Twitter" rel="noopener">🐦</a>
-                        <a href="#" aria-label="LinkedIn" rel="noopener">💼</a>
-                        <a href="#" aria-label="YouTube" rel="noopener">📺</a>
-                        <a href="#" aria-label="Discord" rel="noopener">💬</a>
-                    </div>
+                    <a href="#" class="text-zinc-400 hover:text-white transition-colors">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-400 hover:text-white transition-colors">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
                 </div>
-
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#featured">✨ En Vedette</a></li>
-                        <li><a href="#models">🎬 Tous les Modèles</a></li>
-                        <li><a href="#comparison">📊 Comparatif</a></li>
-                        <li><a href="#faq">❓ FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Catégories</h4>
-                    <ul>
-                        <li><a href="#models" data-filter="text-to-video">Texte → Vidéo</a></li>
-                        <li><a href="#models" data-filter="image-to-video">Image → Vidéo</a></li>
-                        <li><a href="#models" data-filter="free">Gratuits</a></li>
-                        <li><a href="#models" data-filter="api">Avec API</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Légal</h4>
-                    <ul>
-                        <li><a href="/privacy">Confidentialité</a></li>
-                        <li><a href="/terms">Conditions d'utilisation</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 ValtLens. Tous droits réservés.</p>
-                <p class="disclaimer">
-                    Ce site est fourni à titre informatif uniquement.
-                    Les marques et modèles cités appartiennent à leurs propriétaires respectifs.
-                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Toast Notifications -->
-    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
 
-    <!-- Favorites Modal -->
-    <div class="modal-overlay" id="favoritesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="favoritesModalTitle">
-        <div class="modal">
-            <button class="modal-close" id="closeFavoritesModal" aria-label="Fermer">✕</button>
-            <h2 id="favoritesModalTitle">❤️ Mes Favoris</h2>
-            <p class="modal-subtitle">Vos modèles préférés sont sauvegardés localement</p>
-            <div class="favorites-list" id="favoritesList">
-                <p class="favorites-empty">Aucun favori pour le moment.<br>Cliquez sur ❤️ pour ajouter des modèles.</p>
-            </div>
-            <button id="clearFavorites" class="btn btn-outline btn-sm">
-                🗑️ Tout effacer
-            </button>
-        </div>
-    </div>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('glass-nav');
+                navbar.classList.add('bg-transparent');
+            }
+        });
 
-    <!-- Model Detail Modal -->
-    <div class="modal-overlay" id="modelModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modelModalTitle">
-        <div class="modal modal-large">
-            <button class="modal-close" id="closeModelModal" aria-label="Fermer">✕</button>
-            <div class="modal-content" id="modelModalContent">
-                <!-- Content populated by JavaScript -->
-            </div>
-        </div>
-    </div>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    <!-- Scripts -->
-    <script src="script.js" defer></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-    <!-- Analytics (Placeholder - Add your analytics code here) -->
-    <!-- Google Analytics, Plausible, Fathom, etc. -->
+        // Observe all cards
+        document.querySelectorAll('.card-premium').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
+```
