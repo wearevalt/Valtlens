@@ -32,8 +32,11 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(9,9,11,.85);back
 .btn-outline:hover{border-color:var(--vi);color:#fff;background:var(--vi3)}
 .btn-cta{padding:.55rem 1.3rem;border-radius:999px;background:#fff;color:#000;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:all .2s}
 .btn-cta:hover{background:#e4e4e7;transform:translateY(-1px)}
-.btn-login{padding:.5rem 1.25rem;border-radius:999px;background:#fff;color:#000;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-submit-nav{padding:.45rem 1.1rem;border-radius:10px;background:var(--vi3);border:1px solid rgba(139,92,246,.35);font-size:.8125rem;font-weight:600;color:#c4b5fd;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.btn-submit-nav:hover{background:rgba(139,92,246,.25);color:#fff;border-color:rgba(139,92,246,.6)}
+.btn-login{padding:.5rem 1.25rem;border-radius:999px;background:#fff;color:#000;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
 .btn-login:hover{background:#e4e4e7}
+
 
 /* HERO */
 .hero-section{position:relative;overflow:hidden}
@@ -334,7 +337,7 @@ footer{border-top:1px solid var(--border);background:#050506;padding:3.5rem clam
         <h4>Produit</h4>
         <a href="#models">Modèles</a>
         <a href="/api/">API</a>
-        <a onclick="showToast('🚀 Formulaire bientôt !')">Soumettre une IA</a>
+        <a href="/submit/">Soumettre une IA</a>
       </div>
       <div class="footer-col">
         <h4>Ressources</h4>
