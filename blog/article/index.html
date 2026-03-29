@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr" style="scroll-behavior:smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Valtlens — Article</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#09090b;--bg2:#111113;--bg3:#18181b;--bg4:#27272a;--fg:#fafafa;--fg2:#a1a1aa;--fg3:#71717a;--vi:#8b5cf6;--vi3:rgba(139,92,246,.15);--in:#6366f1;--border:rgba(255,255,255,.07)}
+body{background:var(--bg);color:var(--fg);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.6}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(9,9,11,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 clamp(1rem,4vw,3rem)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--vi),var(--in));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.logo-name{font-family:'Instrument Serif',serif;font-size:1.4rem;color:#fff;font-style:italic}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--fg2);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-actions{display:flex;gap:.75rem;align-items:center}
+.btn-ghost{padding:.45rem 1rem;border-radius:999px;border:1px solid var(--bg4);font-size:.8125rem;font-weight:500;color:var(--fg2);background:transparent;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-ghost:hover{border-color:var(--vi);color:#fff;background:var(--vi3)}
+.btn-cta-nav{padding:.5rem 1.25rem;border-radius:999px;background:#fff;color:#000;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-cta-nav:hover{background:#e4e4e7}
+/* LAYOUT */
+.page-wrap{max-width:1200px;margin:0 auto;padding:100px clamp(1rem,4vw,3rem) 5rem;display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:start}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.875rem;color:var(--fg2);text-decoration:none;margin-bottom:2rem;transition:color .2s}
+.back-link:hover{color:#fff}
+.back-link svg{width:16px;height:16px}
+/* ARTICLE HEADER */
+.article-cover{width:100%;border-radius:20px;overflow:hidden;margin-bottom:2.5rem;height:340px;display:flex;align-items:center;justify-content:center}
+.article-cover-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.art-badge{display:inline-block;padding:.3rem .875rem;border-radius:8px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.cat-release{background:rgba(139,92,246,.15);color:#c4b5fd}
+.cat-tutorial{background:rgba(6,182,212,.15);color:#67e8f9}
+.cat-analysis{background:rgba(245,158,11,.15);color:#fbbf24}
+.cat-news{background:rgba(16,185,129,.15);color:#6ee7b7}
+.article-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.25;letter-spacing:-.02em;margin-bottom:1rem}
+.article-meta-row{display:flex;align-items:center;gap:.75rem;font-size:.875rem;color:var(--fg3);margin-bottom:2rem;flex-wrap:wrap}
+.meta-sep{width:3px;height:3px;border-radius:50%;background:var(--bg4)}
+.author-chip{display:flex;align-items:center;gap:.5rem}
+.author-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--vi),var(--in));display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;flex-shrink:0}
+/* CONTENT */
+.article-content{font-size:1rem;color:var(--fg2);line-height:1.85}
+.article-content h2{font-size:1.375rem;font-weight:700;color:#fff;margin:2.5rem 0 1rem;letter-spacing:-.01em}
+.article-content h3{font-size:1.125rem;font-weight:600;color:#fff;margin:2rem 0 .75rem}
+.article-content p{margin-bottom:1.25rem}
+.article-content strong{color:#fff;font-weight:600}
+.article-content ul,.article-content ol{margin-bottom:1.25rem;padding-left:1.5rem}
+.article-content li{margin-bottom:.5rem}
+.article-content blockquote{border-left:3px solid var(--vi);padding:1rem 1.25rem;background:var(--vi3);border-radius:0 12px 12px 0;margin:1.5rem 0;color:var(--fg)}
+.article-content .highlight-box{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.article-content .highlight-box strong{display:block;margin-bottom:.4rem;color:var(--vi)}
+/* SHARE */
+.share-row{display:flex;align-items:center;gap:.75rem;margin:3rem 0;padding:1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:16px;flex-wrap:wrap}
+.share-label{font-size:.875rem;font-weight:600;color:#fff;margin-right:.25rem}
+.share-btn{padding:.45rem 1rem;border-radius:999px;border:1px solid var(--border);font-size:.8125rem;color:var(--fg2);background:transparent;cursor:pointer;transition:all .2s}
+.share-btn:hover{border-color:rgba(139,92,246,.4);color:#fff;background:var(--vi3)}
+/* SIDEBAR */
+.sidebar{position:sticky;top:90px}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:18px;padding:1.25rem;margin-bottom:1.25rem}
+.sidebar-title{font-size:.75rem;font-weight:700;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;padding-bottom:.625rem;border-bottom:1px solid var(--border)}
+.related-item{display:flex;flex-direction:column;padding:.75rem 0;border-bottom:1px solid var(--border);cursor:pointer;text-decoration:none;transition:opacity .2s}
+.related-item:last-child{border-bottom:none;padding-bottom:0}
+.related-item:hover{opacity:.75}
+.related-item-title{font-size:.875rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:.25rem}
+.related-item-meta{font-size:.75rem;color:var(--fg3)}
+.model-chip{display:flex;align-items:center;gap:.625rem;padding:.625rem .875rem;border-radius:10px;background:var(--bg);border:1px solid var(--border);cursor:pointer;text-decoration:none;transition:all .2s;margin-bottom:.5rem}
+.model-chip:hover{border-color:rgba(139,92,246,.3);background:var(--vi3)}
+.model-chip-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.model-chip-name{font-size:.875rem;font-weight:600;color:#fff}
+.model-chip-dev{font-size:.75rem;color:var(--fg3)}
+/* TOAST */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:#18181b;border:1px solid rgba(139,92,246,.4);color:#fff;padding:.875rem 1.5rem;border-radius:12px;font-size:.875rem;z-index:9999;transform:translateY(100px);opacity:0;transition:all .35s;box-shadow:0 20px 40px rgba(0,0,0,.5);max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+footer{border-top:1px solid var(--border);background:#050506;padding:2rem clamp(1rem,4vw,3rem)}
+.footer-bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.footer-bottom p{font-size:.8125rem;color:var(--fg3)}
+.footer-nav{display:flex;gap:1.5rem}
+.footer-nav a{font-size:.8125rem;color:var(--fg3);text-decoration:none;transition:color .2s}
+.footer-nav a:hover{color:#fff}
+@media(max-width:900px){.page-wrap{grid-template-columns:1fr}.sidebar{position:static}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+      <span class="logo-name">Valtlens</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#models">Modèles IA</a>
+      <a href="/blog/" class="active">Journal</a>
+      <a href="/#newsletter">Newsletter</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn-ghost" href="/submit/">Soumettre une IA</a>
+      <a class="btn-cta-nav" href="/auth/">Se connecter</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <main id="mainContent">
+    <!-- injected by JS -->
+  </main>
+  <aside class="sidebar" id="sidebar">
+    <!-- injected by JS -->
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2025 Valtlens. Tous droits réservés.</p>
+    <div class="footer-nav">
+      <a href="/">Accueil</a>
+      <a href="/blog/">Journal</a>
+      <a href="/submit/">Soumettre</a>
+      <a href="/auth/">Connexion</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var ARTICLES = {
+  'sora-public':{
+    title:'Sora d\'OpenAI est enfin ouvert au public : Ce qu\'il faut savoir',
+    cat:'release',catLabel:'Release',catClass:'cat-release',
+    date:'29 mars 2025',read:'3 min',author:'Valtlens',
+    cover:'linear-gradient(135deg,rgba(124,58,237,.35),rgba(79,70,229,.25))',
+    coverIcon:'<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>',
+    modelId:'sora',modelName:'Sora',modelColor:'#8b5cf6',
+    content:`
+      <p>Après des mois d'attente et une présentation en fanfare, <strong>Sora est enfin accessible au public</strong>. Le modèle text-to-video d'OpenAI, capable de générer des vidéos de 60 secondes à partir d'une simple description, est désormais disponible pour tous les abonnés ChatGPT Plus.</p>
+
+      <h2>Ce que Sora peut faire</h2>
+      <p>Sora représente une avancée technique majeure dans le domaine de la génération vidéo. Voici ce que le modèle propose concrètement :</p>
+      <ul>
+        <li><strong>Durée</strong> : jusqu'à 60 secondes de vidéo continue</li>
+        <li><strong>Résolution</strong> : 1080p avec une qualité cinématographique</li>
+        <li><strong>Cohérence temporelle</strong> : les personnages et les objets restent cohérents d'une image à l'autre</li>
+        <li><strong>Styles variés</strong> : du réalisme à l'animation, Sora s'adapte à votre demande</li>
+      </ul>
+
+      <blockquote>
+        "Sora peut créer des scènes avec plusieurs personnages, des types de mouvements spécifiques et des détails précis du sujet et de l'arrière-plan." — OpenAI
+      </blockquote>
+
+      <h2>Les limites à connaître</h2>
+      <p>Comme tout modèle IA, Sora n'est pas parfait. Voici les points faibles à noter :</p>
+      <ul>
+        <li>La physique des objets n'est pas toujours réaliste (liquides, interactions complexes)</li>
+        <li>Les textes dans la vidéo peuvent être incorrects ou flous</li>
+        <li>Les mouvements de foules peuvent sembler artificiels</li>
+        <li>Les mains restent un point faible récurrent</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>Accès et tarifs</strong>
+        Sora est inclus dans l'abonnement ChatGPT Plus ($20/mois) avec des crédits limités. Les abonnés Pro ont un accès illimité. Une API est disponible pour les développeurs.
+      </div>
+
+      <h2>Notre verdict</h2>
+      <p>Sora est indéniablement le modèle text-to-video le plus impressionnant disponible aujourd'hui. Sa capacité à générer des vidéos longues et cohérentes le distingue nettement de la concurrence. Pour les créateurs de contenu, les agences et les indépendants, c'est un outil qui va changer la façon de produire du contenu vidéo.</p>
+      <p>Son intégration dans l'écosystème ChatGPT le rend accessible à une audience très large. Si vous êtes déjà abonné à ChatGPT Plus, vous avez déjà accès à l'outil le plus puissant de la génération vidéo IA.</p>
+    `
+  },
+  'luma-guide':{
+    title:'Comment utiliser Luma Dream Machine gratuitement',
+    cat:'tutorial',catLabel:'Tutoriel',catClass:'cat-tutorial',
+    date:'28 mars 2025',read:'5 min',author:'Valtlens',
+    cover:'linear-gradient(135deg,rgba(217,70,239,.25),rgba(139,92,246,.2))',
+    coverIcon:'<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
+    modelId:'luma',modelName:'Luma Dream Machine',modelColor:'#d946ef',
+    content:`
+      <p>Luma Dream Machine est l'un des modèles de génération vidéo les plus accessibles du marché. Dans ce guide, on vous explique comment créer vos premières vidéos gratuitement en moins de 5 minutes.</p>
+
+      <h2>Créer votre compte</h2>
+      <p>Rendez-vous sur <strong>lumalabs.ai</strong> et créez un compte gratuit avec votre email ou votre compte Google. Aucune carte bancaire n'est requise pour commencer.</p>
+
+      <h2>Rédiger votre premier prompt</h2>
+      <p>La qualité de votre vidéo dépend directement de la qualité de votre prompt. Voici quelques conseils :</p>
+      <ul>
+        <li>Soyez précis sur le sujet, l'action et l'ambiance</li>
+        <li>Mentionnez le style de caméra (vue aérienne, gros plan, etc.)</li>
+        <li>Ajoutez des détails sur l'éclairage et les couleurs</li>
+        <li>Spécifiez le mouvement souhaité</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>Exemple de prompt efficace</strong>
+        "Une femme marche dans une ruelle parisienne au coucher du soleil, lumière dorée, vue de derrière, style cinématographique, mouvement lent"
+      </div>
+
+      <h2>Générer et affiner</h2>
+      <p>Luma génère votre vidéo en environ 2-3 minutes. Si le résultat ne vous convient pas, vous pouvez régénérer avec le même prompt ou l'affiner. Le plan gratuit vous donne environ 5 générations par jour.</p>
+
+      <h2>Astuces pro</h2>
+      <p>Pour obtenir les meilleurs résultats, utilisez une image de référence en plus du prompt textuel. Cette fonctionnalité image-to-video de Luma est particulièrement puissante pour contrôler le style visuel.</p>
+    `
+  }
+};
+
+var RELATED = [
+  {id:'runway-vs-pika',title:'Runway Gen-3 vs Pika 1.0 : lequel choisir ?',meta:'Analyse · 7 min'},
+  {id:'kling-update',title:'Kling 1.5 : le modèle chinois qui défie Sora',meta:'News · 4 min'},
+  {id:'heygen-avatars',title:'HeyGen 2.0 : des avatars encore plus réalistes',meta:'Release · 3 min'}
+];
+
+function getParam(n){return new URLSearchParams(window.location.search).get(n);}
+
+function renderArticle(a){
+  document.title='Valtlens — '+a.title;
+
+  var relatedHTML=RELATED.map(function(r){
+    return '<a class="related-item" href="/blog/article/?id='+r.id+'">'+
+      '<div class="related-item-title">'+r.title+'</div>'+
+      '<div class="related-item-meta">'+r.meta+'</div>'+
+    '</a>';
+  }).join('');
+
+  document.getElementById('mainContent').innerHTML=
+    '<a class="back-link" href="/blog/">'+'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap:round><path d="M19 12H5M12 5l-7 7 7 7"/></svg>'+'Retour au journal</a>'+
+
+    '<div class="article-cover" style="background:'+a.cover+'">'+
+      '<div class="article-cover-inner">'+
+        '<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25" stroke-linecap="round">'+a.coverIcon+'</svg>'+
+      '</div>'+
+    '</div>'+
+
+    '<span class="art-badge '+a.catClass+'">'+a.catLabel+'</span>'+
+    '<h1 class="article-title">'+a.title+'</h1>'+
+    '<div class="article-meta-row">'+
+      '<div class="author-chip">'+
+        '<div class="author-avatar">VL</div>'+
+        '<span>'+a.author+'</span>'+
+      '</div>'+
+      '<span class="meta-sep"></span>'+
+      '<span>'+a.date+'</span>'+
+      '<span class="meta-sep"></span>'+
+      '<span>'+a.read+' de lecture</span>'+
+    '</div>'+
+
+    '<div class="article-content">'+a.content+'</div>'+
+
+    '<div class="share-row">'+
+      '<span class="share-label">Partager</span>'+
+      '<button class="share-btn" onclick="copyLink()">Copier le lien</button>'+
+      '<button class="share-btn" onclick="showToast(\'Twitter bientôt !\')">Twitter / X</button>'+
+      '<button class="share-btn" onclick="showToast(\'LinkedIn bientôt !\')">LinkedIn</button>'+
+    '</div>';
+
+  document.getElementById('sidebar').innerHTML=
+    '<div class="sidebar-card">'+
+      '<div class="sidebar-title">Modèle mentionné</div>'+
+      '<a class="model-chip" href="/model/?id='+a.modelId+'">'+
+        '<div class="model-chip-dot" style="background:'+a.modelColor+'"></div>'+
+        '<div><div class="model-chip-name">'+a.modelName+'</div><div class="model-chip-dev">Voir la fiche</div></div>'+
+      '</a>'+
+    '</div>'+
+    '<div class="sidebar-card">'+
+      '<div class="sidebar-title">Articles similaires</div>'+
+      relatedHTML+
+    '</div>'+
+    '<div class="sidebar-card" style="background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(99,102,241,.07));border-color:rgba(139,92,246,.15)">'+
+      '<div class="sidebar-title">Newsletter</div>'+
+      '<p style="font-size:.8375rem;color:var(--fg2);margin-bottom:1rem;line-height:1.6">Ne ratez plus aucune release IA.</p>'+
+      '<input type="email" id="sideNL" placeholder="votre@email.com" style="width:100%;padding:.65rem .875rem;border-radius:10px;background:rgba(9,9,11,.7);border:1px solid var(--border);color:#fff;font-family:inherit;font-size:.8125rem;outline:none;margin-bottom:.625rem">'+
+      '<button onclick="handleSideNL()" style="width:100%;padding:.65rem;border-radius:10px;background:var(--vi);color:#fff;font-weight:700;font-size:.8125rem;border:none;cursor:pointer">S\'abonner</button>'+
+    '</div>';
+}
+
+function renderNotFound(){
+  document.getElementById('mainContent').innerHTML=
+    '<div style="text-align:center;padding:6rem 2rem">'+
+      '<h1 style="font-size:1.5rem;font-weight:700;margin-bottom:.75rem">Article introuvable</h1>'+
+      '<p style="color:var(--fg3);margin-bottom:2rem">Cet article n\'existe pas.</p>'+
+      '<a href="/blog/" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:14px;background:#fff;color:#000;font-weight:700;text-decoration:none">← Journal</a>'+
+    '</div>';
+  document.getElementById('sidebar').innerHTML='';
+}
+
+function copyLink(){
+  navigator.clipboard&&navigator.clipboard.writeText(window.location.href);
+  showToast('Lien copié !');
+}
+
+function handleSideNL(){
+  var em=document.getElementById('sideNL').value.trim();
+  if(!em||!em.includes('@')){showToast('Email invalide');return;}
+  showToast('Abonné(e) !');
+  document.getElementById('sideNL').value='';
+}
+
+var toastTimer;
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){t.classList.remove('show');},3000);
+}
+
+var id=getParam('id');
+var article=ARTICLES[id];
+if(article) renderArticle(article);
+else renderNotFound();
+</script>
+</body>
+</html>
